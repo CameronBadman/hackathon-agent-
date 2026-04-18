@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.lock.hcl
+
+# Terraform local build artifacts
+terraform/.agent.zip
+terraform/.webhook.zip
+
+# Google Cloud SDK/local downloads
+google-cloud-sdk/
+google-cloud-cli-*.tar.gz
+
+# Codex/local tooling
+.codex/
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+.codex
