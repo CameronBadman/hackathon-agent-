@@ -4,7 +4,8 @@ PROSPECTIVE_SUMMARY = "Prospective Hackathons"
 DEFAULT_COLLECTION = "hackathons"
 DEFAULT_DISCOVERY_WINDOW_DAYS = 60
 DEFAULT_MAX_DISCOVERY_RESULTS = 150
-DEFAULT_QUALITY_SCORE_THRESHOLD = 0.65
+DEFAULT_QUALITY_SCORE_THRESHOLD = 0.45
+DEFAULT_FINAL_INCLUDE_CONFIDENCE = 0.90
 DEVPOST_API_URL = "https://devpost.com/api/hackathons"
 
 SOURCE_HINTS = [
@@ -122,6 +123,9 @@ class Config:
         )
         self.quality_score_threshold = float(
             os.getenv("QUALITY_SCORE_THRESHOLD", str(DEFAULT_QUALITY_SCORE_THRESHOLD))
+        )
+        self.final_include_confidence = float(
+            os.getenv("FINAL_INCLUDE_CONFIDENCE", str(DEFAULT_FINAL_INCLUDE_CONFIDENCE))
         )
         self.oauth_client_id_secret = os.getenv(
             "GOOGLE_OAUTH_CLIENT_ID_SECRET_NAME", "google-oauth-client-id"

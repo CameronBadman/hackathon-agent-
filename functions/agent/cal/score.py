@@ -32,7 +32,8 @@ def quality_score(candidate: Dict[str, Any], validation: Dict[str, Any]) -> floa
     score += 0.30 if looks_trusted_source(url) else 0.05
     score += 0.25 * as_unit_float(validation.get("confidence"))
     score += 0.25 if bool(validation.get("is_genuine", False)) else -0.20
-    score += 0.25 if bool(validation.get("matches_skills", False)) else -0.20
+    # Discovery-stage `matches_skills` can be noisy; location and final filters decide suitability.
+    score += 0.15 if bool(validation.get("matches_skills", False)) else 0.0
     if looks_suspicious_title(name):
         score -= 0.35
     if any(t in url.lower() for t in ("/event/", "/events/", "/hackathon", "/hackathons")):
